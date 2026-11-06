@@ -1,0 +1,29 @@
+# Local secrets — never commit (security S5, 2026-10-25)
+.env
+connection.json
+databaseConnection.json
+*firebase-adminsdk*.json
+*-adminsdk-*.json
+*.pem
+*.key
+
+# Build outputs
+/usersAppAK
+/main
+*.exe
+
+# Local backups made by the AI assistant (they can contain old secrets/code)
+.ai_backups/
+
+# Production CORS list of this server (example: cors_allowed_origins.example.txt)
+cors_allowed_origins.txt
+# secrets - never in git
+.env
+.env.*
+!.env.example
+connection.json
+*adminsdk*.json
+*.dump
+# built program and local files
+/usersAppAK
+*.mmdb

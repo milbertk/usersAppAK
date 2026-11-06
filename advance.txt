@@ -1,0 +1,122 @@
+
+
+I need create in frontend a create part for create the diferents users in the diferents ways, in this case FB, Microsoft, Google and user and email.
+
+
+Then is necesary create a login system, this login systen needs the nexts:
+
+
+Login with user and pass:
+
+1 Validate the user, if exist, if nt exist, reciebe message and give ad for join,
+, validate the credential in FB create Local JWT with information about status, its active, secind status, is verified, and develop the behaivos for the app.
+
+
+2) validate the login with another provider: Validate if exist, if does not exist in a local way create it.
+Generate JWT with the features for wok and manage the vehaibor in the app.
+
+
+3 in boot chases previus if the Local JWT exist try to use if is expires case 1 give message for login, in case 2 alsow give message for login again and delete all old JWT
+
+4 Once login create again JWT may be with 2 days of life.
+
+
+
+**************************Login continue with ****************************************************************************************
+
+The acces to the platform, 
+
+The role depends of the company.
+
+# roles SA, ADMIN, user.
+
+In the manager way is necesary the users can be asigned, the creator of the company on other client functions are free and can accedes when the wi=ser need.
+
+
+- Class for validate the user, create the local JWT and continue validating with JWT.
+
+- Validate the local JWT if is expired requiere a login again.
+
+
+
+-Class that validate the role of the user.
+
+*Sa can create companies, purchase plans, create users, had full access to the companies when 
+
+*SA can create accounts, delete give administrator rules and not validate permissions, create companys
+
+*Administrator: can create another users and give permissions, but does not have the oportunity to create another administrators, need be asigned at company.
+
+*Normal User: Is an user that wee can use in companies when the software allow, need be asigned at company and asignt to platforms and 
+
+- Class that validate the access aloewed for the user, this class 
+
+
+
+
+**********************************
+
+
+create the Login
+1 step validate the firebase Login be sure exist
+
+2 validate the local token, and refres the session
+
+3 considere if the profile have a short time give this time in the token
+
+if login tracking the login
+
+
+
+in front works like that 
+
+on load oracces wichone platform if exists local token try the local token.
+
+if the local token is valid, insert tracking
+
+
+if the local token is invalid, give the oportunitu=y of login again and create the new localtoken
+
+(Validate if works the same or is necesary separate the login kind.(Google react etc etc ) )
+
+
+***********************************************
+
+Create an tracking platform mdify sql for add action, and json of actionn
+
+
+Its necesary wichone data to pas an sql seralize in json indicate the new data.
+
+
+
+Create a decode jwt for get data for tracking
+
+
+i have a trouble with access trakin posible solution its errase current acces tracking and create anoter fronm zero.
+
+
+current status: adding the concept of account,.
+
+user>account>services
+
+
+Review and test user creation, 
+
+ensure the account creation its working.
+
+create the companies
+
+Continue creating te table for joined platforms by company or user, depends if the platform its for user or company.
+
+create a validation for plans for company in this case its osible only a true or false for a table.
+
+
+- review, the account creation.
+- create the company maintenance.
+
+
+--Next steep, create the handlers for company and pulish the route, importat very importan place a middleware in the router for
+validate the user is real.
+
+
+(Validate also if is nedded more middlewares, for example, validate the company belongs to the user)
