@@ -4,7 +4,7 @@ import "strings"
 
 // aiKnowledgeVersion says when aiSystemKnowledge was last checked against the
 // app. Change it every time the knowledge is updated.
-const aiKnowledgeVersion = "2026-11-04 (usersAppAK #17)"
+const aiKnowledgeVersion = "2026-11-08 (usersAppAK #26)"
 
 // aiScreenPaths are the screens the agent may link to. They must be the same
 // as ASSISTANT_ROUTES in p3 (src/Shared/Components/HeaderTools/assistantRoutes.js):
@@ -22,6 +22,7 @@ var aiScreenPaths = []string{
 	"/shao/booking-requests",
 	"/shao/appointments",
 	"/shao/book-for-customer",
+	"/shao/locations",
 	"/shao/customers",
 	"/shao/page-configuration",
 	"/shao/reports",
@@ -57,9 +58,56 @@ MAIN SCREENS (side menu groups: Sell, Bookings, Customers, My store, Reports, Te
 - Order stages [/shao/order-stages]: the processes (steps) an order item goes
   through; each step has "Notify the customer (email)" (unchecked by default).
 - Booking schedules [/shao/booking-schedules]: set the hours available for booking.
+  While "We use locations" is off (or there is no active location) a box says to
+  create the locations first, with the button "Go to Locations" (it can be closed).
+  Steps: 1 choose the service (type to search; the rest of the form stays
+  locked until then), 2 general information, 3 one mode only: "Recurring weekly
+  schedule" OR "Calendar availability". Changing the mode of a saved schedule
+  asks first: when saved, the hours of the other mode are deleted (booked
+  appointments are kept). Saved, errors and warnings also show as a pop-up
+  (toast). Two ranges in the same location at the same time are refused.
+  Calendar: past dates are history (greyed, not changed or saved again); the
+  calendar opens on today or the first open date from today. The
+  "Generated-space preview" shows the spaces of the selected day in one row per
+  location.
 - Booking requests [/shao/booking-requests]: approve or reject booking requests.
+  With "We use locations" on, the request detail has a "Location" list and
+  "Save location" to choose or change the location before approving (a
+  warning shows when the request has none; approving is still allowed).
 - Appointments [/shao/appointments]: manage appointments (done, cancelled, reopened).
+  With locations on, the detail of a scheduled appointment has "Location" +
+  "Save location"; the customer gets an email with the change, and a warning
+  shows if another appointment is at that hour in another location.
+- Store booking window: first the date, then the available times; after
+  choosing a time it scrolls to the end of the form: "Your choice" (date,
+  time, location) and "Your information" (name, phone, email, preferred
+  contact, notes), then Send; a round arrow button goes back to the top.
+- After every request that the company must approve (store booking request,
+  store order request, new time or cancellation request from the email link)
+  the store shows a pop-up "Request sent — pending approval": it is NOT
+  confirmed yet, check your email (a copy was sent now and another email comes
+  when the company approves or rejects it; also look in Spam), and "No email?
+  Contact <company>" with the company WhatsApp, the customer service email
+  (Company page) and the social link, each only when set.
 - Book for a customer [/shao/book-for-customer]: create an appointment for a customer.
+- Locations [/shao/locations] (Sedes): the places where the company attends
+  appointments (name, address, details, map point from "Use my current
+  location" or a pasted Google Maps link). The main switch "We use
+  locations" (off by default): OFF = AlephK works without locations (the
+  store, schedules, forms and emails show no location; saved locations are
+  kept); ON = locations are used. The second switch "We can attend in more
+  than one location at the same time" (only when locations are on; off = one
+  location at a time: the same hours can not be in two locations). Each
+  block of hours in Booking schedules can have a location, "No location" or
+  "Customer chooses (any active location)": the store then shows those hours
+  in every active location and the customer picks one (with "same time" ON
+  each location has the block's places; OFF = the places are shared). A new
+  time range lasts one appointment; saving says which ranges overlap or are
+  too short. Each appointment can have a location (optional); the store shows
+  the free times grouped by location with "Open in Maps", and the emails show
+  the location. Turning locations on is refused while hours clash in two
+  locations (the list is shown). A used location can not be deleted: it is
+  disabled instead.
 - Customers [/shao/customers]: add, search and edit customers.
 - Company page [/shao/page-configuration]: name, store address, logo, header
   image, currency, payment instructions, notification email, customer service

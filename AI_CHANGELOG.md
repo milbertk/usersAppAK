@@ -4,6 +4,135 @@ Keeps the latest 15 changes made with Claude (oldest are removed). Newest first.
 
 ---
 
+## 26. 2026-11-08 — AI knowledge: "Request sent — pending approval" pop-up
+
+**Backups:** `.ai_backups/2026-11-08_before_request_sent_popup/`.
+
+**Description:** works with showcase #30 and shao #43. After every request the company must approve, the store shows
+the pop-up (not confirmed yet, check your email, contact the company). Version "2026-11-08 (usersAppAK #26)".
+AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 25. 2026-11-08 — AI knowledge: store booking window, contact fields at the end
+
+**Backups:** `.ai_backups/2026-11-08_before_booking_info_last/`.
+
+**Description:** works with showcase #29. Same text as shao #42. Version "2026-11-08 (usersAppAK #25)".
+AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 24. 2026-11-08 — AI knowledge: location in requests and appointments, store booking window
+
+**Backups:** `.ai_backups/2026-11-08_before_appointment_location/`.
+
+**Description:** works with shao #41, p3 #51 and showcase #28. Booking requests and Appointments can choose or change
+the location ("Save location"); the store window scrolls to the times, shows "Your choice" and has a ↑ button.
+Version "2026-11-08 (usersAppAK #24)". AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 23. 2026-11-08 — AI knowledge: past dates, today selected, preview per location
+
+**Backups:** `.ai_backups/2026-11-08_before_past_dates_preview/`.
+
+**Description:** works with shao #40 and p3 #50. Booking schedules: past dates are history, the calendar opens on today
+or the first open date, the preview shows one row per location. Version "2026-11-08 (usersAppAK #23)".
+AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 22. 2026-11-08 — AI knowledge: Booking schedules in steps, one mode, toasts
+
+**Backups:** `.ai_backups/2026-11-08_before_schedule_steps/`.
+
+**Description:** works with shao #39 and p3 #49. `bAISystemKnowledge.go`: Booking schedules starts with the service
+(the rest is locked until then), uses one mode only (changing it deletes the other mode's hours when saved; booked
+appointments are kept), shows toasts, and refuses two ranges in the same location at the same time. Version
+"2026-11-08 (usersAppAK #22)". AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 21. 2026-11-08 — AI knowledge: "Customer chooses" places per location, 1-hour new ranges
+
+**Backups:** `.ai_backups/2026-11-08_before_places_per_location/`.
+
+**Description:** works with shao #38 and p3 #48. `bAISystemKnowledge.go`: with "same time" ON each location has the
+block's places (OFF = shared); a new time range lasts one appointment; saving says which ranges overlap or are too
+short. Version "2026-11-08 (usersAppAK #21)". AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 20. 2026-11-08 — AI knowledge: Booking schedules "Create your locations first" box
+
+**Backups:** `.ai_backups/2026-11-08_before_locations_hint/`.
+
+**Description:** works with p3 #47. `bAISystemKnowledge.go`: Booking schedules explains the box with the button
+"Go to Locations"; version "2026-11-08 (usersAppAK #20)". AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 19. 2026-11-08 — AI agent knowledge: "We use locations" + "Customer chooses"
+
+**Backups:** `.ai_backups/2026-11-08_before_locations_options/`.
+
+**Description:** works with shao #35 and p3 #46. `brules/bAIAgent/bAISystemKnowledge.go`: the Locations screen now
+explains the main switch "We use locations" (off by default = no locations anywhere; saved locations are kept), the
+"same time" switch (only when locations are on), the option "Customer chooses (any active location)" on each block
+of hours, and that turning locations on is refused while hours clash. Version "2026-11-08 (usersAppAK #19)".
+AI knowledge: updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Undo:** restore the `.bak` file from the backup folder.
+
+---
+
+## 18. 2026-11-07 — AI agent knowledge: Locations ("Sedes")
+
+**Backups:** `.ai_backups/2026-11-07_before_company_locations/`.
+
+**Description:** works with shao #34 and p3 #45. `brules/bAIAgent/bAISystemKnowledge.go`: new screen "Locations
+[/shao/locations]" (places of the company, map point, the switch "more than one location at the same time",
+location on hours and appointments, store grouped by location, disabled instead of deleted) and the path in
+`aiScreenPaths`. Version "2026-11-07 (usersAppAK #18)". No endpoint or database change. Tests pass. AI knowledge:
+updated.
+
+**Modified:** brules/bAIAgent/bAISystemKnowledge.go
+
+**Revert:** copy the `.bak` file back ("__" = "/"), rebuild and restart usersAppAK.
+
+---
+
 ## 17. 2026-11-04 — AI agent knowledge: clock in the top bar
 
 **Backups:** `.ai_backups/2026-11-04_before_header_clock/`.
@@ -115,163 +244,3 @@ affected are fixed automatically at their next login (sign out and sign in again
 **Revert:** copy the `.bak` file back, rebuild and restart usersAppAK.
 
 ---
-
-## 11. 2026-10-29 — Invitation email includes a link to the app (APP_PUBLIC_URL)
-
-**Backups:** `.ai_backups/2026-10-29_before_invitation_link/`.
-
-**Description:** new `.env` setting `APP_PUBLIC_URL` (base address of p3). The invitation email adds "To accept or
-decline the invitation, open: <APP_PUBLIC_URL>/manageinvitatinsbyuser" plus a note to create an account with the same
-email first. Empty setting = email as before (no link) + a log warning. Change `.env` and restart, no rebuild.
-Test `TestInvitationLink`.
-
-**Modified:** brules/bcreateUsers/BSendInvtationEmail.go, BSendInvtationEmail_test.go, env.example.NEW.txt
-
-**Revert:** copy the `.bak` files back, rebuild and restart usersAppAK.
-
----
-
-## 10. 2026-10-28 — Invitations use the general email settings from .env (no hard-coded SMTP)
-
-**Backups:** `.ai_backups/2026-10-28_before_invitation_smtp_env/`.
-
-**Description:** `BSendInvtationEmail.go` had the mail server, user and **password** written in the code. Now
-`LoadGeneralSMTPConfig()` reads `SMTP_HOST`, `SMTP_PORT` (587), `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM` (default
-SMTP_USER) and the new `SMTP_FROM_NAME` (default "AlephK") from `.env` — the same settings support requests use.
-Sender shows as "Name <address>", subject "<Name> invitation", signature "<Name>". Missing settings return
-`ErrEmailNotConfigured` (the endpoint answers 500 "The invitation could not be sent"). Change `.env` + restart, no rebuild.
-New test `BSendInvtationEmail_test.go`.
-
-**Modified:** brules/bcreateUsers/BSendInvtationEmail.go, env.example.NEW.txt
-**Created:** brules/bcreateUsers/BSendInvtationEmail_test.go
-
-**Revert:** copy the `.bak` files back, delete the test file, rebuild and restart usersAppAK.
-
----
-
-## 9. 2026-10-28 — Login cookie: Domain + Secure from AUTH_COOKIE_DOMAIN
-
-**Backups:** `.ai_backups/2026-10-28_before_cookie_domain/`.
-
-**Description:** `HuserLogin.go` sets the `access_token` cookie with `Domain = AUTH_COOKIE_DOMAIN` and `Secure = true`
-when that variable is set (not localhost / .local), the same rule logout already used. Empty variable = exactly as before
-(no Domain, Secure=false). Tracking unchanged. `env.example.NEW.txt` explains the variable.
-
-**Modified:** handlers/HuserLogin/HuserLogin.go, env.example.NEW.txt
-
-**Revert:** copy the `.bak` files back, rebuild and restart usersAppAK.
-
----
-
-## 8. 2026-10-27 — Facebook sign-in with an email counts as verified email; tracking on /createuser
-
-**Backups:** `.ai_backups/2026-10-27_before_facebook_email_verified/`.
-
-**Description:** Firebase marks Facebook emails as not verified, so Facebook users would see "Verify your email".
-New `brules/bcreateUsers/bEmailVerified.go` → `BEffectiveEmailVerified(claim, provider, email)`: provider
-`facebook.com` with a non-empty email → `"true"`; everything else keeps Firebase's value (Google, Microsoft — kept
-strict on purpose for work/school accounts —, Apple, email + password, Facebook without email). Used in
-`HuserLogin.go` (new user + the update comparison, so existing Facebook users are fixed at their next login) and
-`HuserCreate.go`. `/createuser` now writes tracking (lt) `CreateUser` / `CreateUserFailed` with provider and
-emailVerified (no token). Unit test `bEmailVerified_test.go`. No DB or frontend change.
-
-**Created:** brules/bcreateUsers/bEmailVerified.go, bEmailVerified_test.go
-**Modified:** handlers/HuserLogin/HuserLogin.go, handlers/HuserCreate/HuserCreate.go
-
-**Revert:** copy the `.bak` files back, delete the two new files, rebuild and restart usersAppAK.
-
----
-
-## 7. 2026-10-25 — Names: Aleph / AlephTelos in the AI agent instructions
-
-**Backups:** `.ai_backups/2026-10-25_before_alephtelos_names/`.
-
-**Description:** texts only: the agent introduces itself as "Aleph, the AlephK assistant"; the system knowledge calls
-the main platform AlephTelos ("its old name was Service Hub") and AlephK a brand of Kuantum K.
-
-**Modified:** brules/bAIAgent/bAISystemKnowledge.go
-
-**Revert:** copy the `.bak` back and rebuild.
-
----
-
-## 6. 2026-10-25 — CAPTCHA (Cloudflare Turnstile) on support requests
-
-**Control point:** CC 2. Backups: `.ai_backups/CC2_before_captcha/`. No database change.
-
-**Description:** new `brules/bCaptcha/bCaptchaVerify.go` (same verifier as shao) + tests. `POST /supportrequests` checks the
-`X-Captcha-Token` header (400 / 503 with `data.code`, tracking `SupportRequestCaptchaFailed`). CORS allows the header.
-Environment: `TURNSTILE_SECRET_KEY` (empty = CAPTCHA off; on your computer leave it empty or use the test secret `1x0000000000000000000000000000000AA`), optional `CAPTCHA_PROVIDER`, `CAPTCHA_FAIL_OPEN=1`, `TURNSTILE_ALLOWED_HOSTNAMES`. Lines added to `env.example.NEW.txt`.
-
-**Created:** brules/bCaptcha/bCaptchaVerify.go (+_test)
-**Modified:** handlers/HsupportRequest/HCreateSupportRequest.go, routers/router.go, env.example.NEW.txt
-
-**Revert:** copy the `.bak` files back, delete the created folder, rebuild usersAppAK.
-
----
-
-## 5. 2026-10-25 — Security fixes after control point CC 1 (S3, S5, S9, S10, S11, S15)
-
-**Control point:** CC 1 = the state before this change. Backups: `.ai_backups/CC1_before_security_fixes/` (README lists every file). No database change.
-
-**Description:**
-- **S3:** `status` (and `plan`) are never taken from the company form: new = FREE / ACTIVE, update keeps the saved values
-  (HcompanyCreate, BCreateOrUpdateCompany, BUpdateCompany).
-- **S10:** `GET /searchUser` only for the OWNER / MANAGER of `companyId` (query param or X-Company-ID header,
-  security.RequireActiveCompanyUser), exact complete email only, max 1 user, tracked (`SearchUserByEmail`, without the
-  searched email). New `database/databaseUsers/dSearchUserByExactEmail.go`; the old partial search function is unused.
-- **S11:** the Authorization header / token is no longer printed (HuserCreate, helpers/auth_helper.go); no company name /
-  identification number / emails in logs (bCreateCompany, DSelectUserByEmail, HuserGetBYDesc).
-- **S15:** `handlers/common/safeErrors.go`: business messages stay, technical details (DB, SQL, Firebase) go to the log
-  and the browser gets a generic text — applied in 20 handlers ("Invalid JSON body" without details too).
-- **S9 CORS:** same as shao (APP_ENV production / test / not set) — routers/cors_config.go.
-- **S5:** .gitignore adds connection.json, databaseConnection.json, .ai_backups/, *.pem, *.key.
-- Tests added: safeErrors, exact-email search. Build + tests OK (with stub libraries).
-
-**Created:** handlers/common/safeErrors.go (+_test), brules/bcreateUsers/bsearchUsersByEmailNameOrId_test.go,
-database/databaseUsers/dSearchUserByExactEmail.go, routers/cors_config.go, cors_allowed_origins.example.txt
-
-**Modified:** (new `.env.example` content is in `env.example.NEW.txt` — rename it; remote tools cannot write .env files), .gitignore, routers/router.go, brules/bCompany/bCreateCompany.go, bUpdateCompany.go,
-brules/bcreateUsers/bsearchUsersByEmailNameOrId.go, database/databaseUsers/DSelectUserByEmail.go, helpers/auth_helper.go,
-handlers/users/HuserGetBYDesc.go, handlers/HuserCreate/HuserCreate.go, handlers/HuserLogin/HuserLogin.go,
-HSendInvitationRequest.go, handlers/common/notifications.go, handlers/securityGen/HChangeEmail.go, HChangePassword.go,
-CanChangeFirebasePasswordResponse.go, HuserMe.go, handlers/Hcompany/HcompanyCreate.go, HcompanyGetByUser.go,
-hgetAllCompanies.go, hRequestUsersCompany.go, HUpdateRequestInputCancelByManager.go, HProcessCompanyUserInvitation.go,
-HTransferCompanyOwner.go, HUserPendingRequestsFlagResponse.go, HGetPendingInvitationsByUser.go, HSearchCompanyUsers.go,
-HCompanyUserRequestSearchResponse.go, UpdateCompanyUserResponse.go
-
-**Revert:** copy every `.bak` of `.ai_backups/CC1_before_security_fixes/` back (README), delete the created files, rebuild usersAppAK.
-
----
-
-## 4. 2026-10-24 — Support requests (general table), environment config, test routes removed
-
-**Database (run first, usersAK):** `sql/supportRequests.sql` — new table `tbl_support_request` (one general table for all
-users, companies and platforms). Safe to run twice. Usage and revert SQL inside.
-
-**Description:**
-- `POST /supportrequests` (logged-in user, `RequireActiveUser`): validates the form (topic, priority, contact method, time slots,
-  up to 3 https image URLs), max 10 requests per user per day, saves the row with a ticket code `SUP-YYMMDD-XXXX` and emails it
-  (in the background) to `SUPPORT_EMAIL_TO` with `SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASSWORD / SMTP_FROM`.
-  `email_sent` is set when the email works. Tracking `CreateSupportRequest` / `CreateSupportRequestFailed`.
-- `main.go` loads `.env` and reads `PORT` (default 8080); the router adds `CORS_ALLOWED_ORIGINS`.
-- Removed the test routes `/profile` and `/testwithauth`; "/" answers a small JSON health check.
-  Dead files to delete by hand: `handlers/tetHandler.go`, `handlers/HuserLogin/HLogout.go` (nothing uses them).
-- `.gitignore` (.env, Firebase admin json, binaries) and `.env.example`.
-
-**Files created:** `database/databaseSupportRequest/` (3 files), `brules/bSupportRequest/` (2 files),
-`handlers/HsupportRequest/HCreateSupportRequest.go`, `sql/supportRequests.sql`, `.gitignore`, `.env.example`,
-`.ai_backups/2026-10-24_before_report2_fixes/`.
-
-**Files modified:** `main.go`, `routers/router.go`.
-
-**Revert:** see the backup `README.txt`. Revert p3 #21 too (the support form would fail without the endpoint).
-
----
-
-## 3. 2026-10-22 — Company plan cannot be changed by the owner
-
-**Description:** `bCreateCompany.BCreateOrUpdateCompany`: on update the saved plan is kept; new companies always start
-on FREE. `BUpdateCompany` keeps the saved plan too. Plans are changed by AlephK (SQL) after a plan request from shao.
-
-**Revert:** restore the `.bak` files from `.ai_backups/2026-10-22_before_company_plans/`.
